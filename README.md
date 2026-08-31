@@ -1,4 +1,4 @@
-# Penn MEDIATED — Grant Tracker
+# Penn MEDIATED — Grants Overview
 
 An interactive dashboard of the 2025 Information and Democracy Research Grants cohort, for the [Center on Media, Technology and Democracy](https://infodem.upenn.edu). Sits alongside the public `grants` page as an internal/detailed view: search and filter the full cohort, and open a grant for its full detail (project summary, "why it matters," topics, methods, expected outputs, timeline).
 
