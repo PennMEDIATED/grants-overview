@@ -7,14 +7,6 @@ An interactive dashboard of the 2025 Information and Democracy Research Grants c
 
 Same conventions as [`about`](https://github.com/PennMEDIATED/about), [`home`](https://github.com/PennMEDIATED/home), and [`grants`](https://github.com/PennMEDIATED/grants) — shared spacing tokens, brand colors, and fonts. Pull values from `about/README.md`'s "Style guide" section rather than guessing new ones; this file only documents what's specific to this page.
 
-## Deployment
-
-This repo deploys straight to the live site — no GitHub Pages hosting step, no WordPress iframe embed.
-
-- A clone of this repo lives on the department's web server (eniac) at the path WordPress resolves `/grants/` to, on the new `mediated.upenn.edu` instance. The server's `.htaccess` defers to real files/directories on disk before handing a request to WordPress, so this repo's own files are what actually serve `https://mediated.upenn.edu/grants/` — there's no WordPress Page involved at that URL.
-- A GitHub webhook fires on every push to `main`, hitting a WordPress REST endpoint (`/wp-json/mediated/v1/deploy`) that verifies the request's signature (HMAC-SHA256, shared secret) and runs `git pull` in this repo's directory on the server. Deploys land within seconds of pushing — no polling delay.
-- To undo a live mistake: `git revert` the bad commit and push it, same as any other change. **Don't** `git reset --hard` + force-push — the webhook always runs a normal `git pull`, and rewritten history will make that fail instead of quietly applying the fix.
-
 ## Editing a grant
 
 There's no build step and no data files — same as every sibling repo, edit `index.html` directly.
