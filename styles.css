@@ -38,7 +38,7 @@
      grants' own .intro uses (this section duplicates its copy). */
   header.page-header {
     background: var(--c-bg);
-    padding: 80px 0 80px;
+    padding: 80px 0 24px;
   }
   header.page-header .wrap { display: flex; justify-content: space-between; align-items: flex-start; gap: 20px; flex-wrap: wrap; }
   header.page-header h1 {
@@ -61,7 +61,7 @@
      Solid brand purple rather than the two-tone gradient — same treatment
      as about's Partners section / team-leadership's .team-section--purple
      (background: var(--c-accent)), a documented alternative to --c-gradient. */
-  .stats-band { background: var(--c-accent); padding: 80px 0 80px; }
+  .stats-band { background: var(--c-accent); padding: 0 0 80px; }
   .stats-band h2 {
     font-family: var(--f-sans); font-size: 40px; font-weight: 600; letter-spacing: -0.02em;
     line-height: 1.15; color: #ffffff; margin: 0 0 24px;
