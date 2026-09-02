@@ -26,6 +26,7 @@
     --c-pale-orange: #fce4dc;
     --c-gradient: linear-gradient(150deg, #5533ee 0%, #df3611 81%);
     --border: rgba(13,13,12,0.08);
+    --card-hover-shadow: rgba(13,13,12,0.16);
     --pillar-eco-bg: #26ffaa;
     --pillar-eco-text: #0d0d0c;
     --pillar-ai-bg: #ffcf26;
@@ -149,6 +150,13 @@
   .card {
     background: var(--c-bg); border: 1px solid var(--border);
     padding: var(--space-200) var(--space-250) var(--space-200); display: flex; flex-direction: column;
+    transition: box-shadow 0.15s, transform 0.15s;
+  }
+  /* Sitewide hover: box-shadow + translateY lift, never a border-color change. */
+  .card:hover { box-shadow: 0 12px 24px var(--card-hover-shadow); transform: translateY(-4px); }
+  @media (prefers-reduced-motion: reduce) {
+    .card { transition: box-shadow 0.15s; }
+    .card:hover { transform: none; }
   }
   .pillar-tag {
     display: inline-block; font-family: var(--f-sans); font-size: var(--fs-micro); font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase;

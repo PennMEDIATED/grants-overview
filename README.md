@@ -69,9 +69,11 @@ The top five are `clamp()` values that interpolate across the viewport, so table
 
 ## Style guide deltas from `about`
 
-Everything not listed here (spacing scale, `--c-dark`/`--c-accent`/`--c-red`/`--c-gray`/`--c-gray-dark`/`--c-light-bg`/`--c-white`/`--c-bg`, `--c-gradient`, `--f-serif`/`--f-sans`, the `--fs-*`/`--lh-*` type scale, the 1440px/80px-responsive layout scale, the sharp-corners-except-circles rule, and the sharp-corners-except-circles rule) is pulled straight from `about` and should stay that way.
+Everything not listed here (spacing scale, `--c-dark`/`--c-accent`/`--c-red`/`--c-gray`/`--c-gray-dark`/`--c-light-bg`/`--c-white`/`--c-bg`, `--c-gradient`, `--f-serif`/`--f-sans`, the `--fs-*`/`--lh-*` type scale, the 1440px/80px-responsive layout scale, the sharp-corners-except-circles rule, the sharp-corners-except-circles rule, and the box-shadow+translateY-never-border-color hover convention) is pulled straight from `about` and should stay that way.
 
 This page defines a handful of tokens `about` doesn't need, all functional (drive dynamic UI state, not decoration):
+
+- `--card-hover-shadow` — the card hover-shadow value.
 
 - `--pillar-eco-bg`/`-text`, `--pillar-ai-bg`/`-text`, `--pillar-per-bg`/`-text` — the three research-pillar tag colors (also used for the purple-band dropdown tabs' accent). Drawn from the secondary color palette introduced for this page (see `grants/README.md`'s "Secondary colors" section).
 
@@ -79,7 +81,7 @@ This page defines a handful of tokens `about` doesn't need, all functional (driv
 
 This page is a data tool, not a marketing page, so several components exist here with nothing to keep in sync against:
 
-- **Grant card** — category bar, title, researchers, affiliated schools, one-line description, then labelled Topics and Expected outputs tag rows. The first `.card-meta` carries `margin-top: auto`, so both tag groups sit together on the card's bottom edge and line up across a row regardless of description length.
+- **Grant card** — category bar, title, researchers, affiliated schools, one-line description, then labelled Topics and Expected outputs tag rows. Hovering lifts the card `4px` and adds `--card-hover-shadow`; the border never changes color, per the sitewide convention. The first `.card-meta` carries `margin-top: auto`, so both tag groups sit together on the card's bottom edge and line up across a row regardless of description length.
 - **Purple-band pillar dropdowns** — three research-area tabs (`Unpacking the Media Ecosystem` / `When AI Mediates Information` / `Persuasion and Common Ground`), one panel open at a time, each showing just that pillar's description (the grants themselves are only listed once, in the card grid below, to avoid duplicating content).
 
 ## Keeping in sync
