@@ -37,7 +37,7 @@ Section rhythm:
 - **Full-width chapter sections** (`.stats-band`) carry `var(--space-1000)` (80px) top and bottom padding. A colored band with no top padding puts its heading flush against the band edge.
 - **The page hero** (`header.page-header`) is `var(--space-1000)` top, `var(--space-600)` (48px) bottom — the shorter bottom because the following section supplies its own 80px.
 - **The white listing block** (`section.body-section`) carries `var(--space-1000)` margins for the section break and `var(--space-800)` (64px) padding as its own inset.
-- **Section title to first content** is `var(--space-300)` (24px), matching `grants-rfp`, `team-leadership` and `our-team-job-openings`. Page/hero titles use `var(--space-250)` (20px).
+- **Section title to first content** is `var(--space-300)` (24px), matching `grants-rfp`, `team-leadership` and `team-job-openings`. Page/hero titles use `var(--space-250)` (20px).
 
 ## Typography
 
@@ -48,7 +48,7 @@ Sitewide convention. The `--fs-*`/`--lh-*` block at the top of `styles.css` is t
 - **`--f-serif` (EB Garamond)** — page titles, and **titles of works or names of people**: a blog post title, a paper title, a person's name. Plus pull-quote copy.
 - **`--f-sans` (DM Sans)** — **section headings**, card and UI labels, running prose, metadata, controls, and uppercase micro-labels.
 
-The one that trips people up: **a section heading is not serif.** "Past Events", "Funded Grants", "Latest Updates" are all DM Sans 700 at `--fs-h2`. Serif marks a thing that has its own name — `blog`'s `.post-item h2`, `research-compendium`'s `.entry__title`, `team-leadership`'s `.person-card__name`, `our-team-faculty`'s `#fb-name` and `#pd-title` — while sans marks the furniture around it, *including card titles that label a category rather than name a work* (`events`' `.event-card__title`, `data`'s `.data-project__title`, `home`'s `.news-card__title`).
+The one that trips people up: **a section heading is not serif.** "Past Events", "Funded Grants", "Latest Updates" are all DM Sans 700 at `--fs-h2`. Serif marks a thing that has its own name — `blog`'s `.post-item h2`, `research-compendium`'s `.entry__title`, `team-leadership`'s `.person-card__name`, `team-faculty`'s `#fb-name` and `#pd-title` — while sans marks the furniture around it, *including card titles that label a category rather than name a work* (`events`' `.event-card__title`, `data`'s `.data-project__title`, `home`'s `.news-card__title`).
 
 So two `--fs-h3` card titles can legitimately differ: a post title is serif because it names a work, an event card title is sans because it labels an event. That is the rule, not an inconsistency.
 
