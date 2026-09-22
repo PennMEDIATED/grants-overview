@@ -1,6 +1,6 @@
 # Penn MEDIATED — Grants Overview
 
-A static listing of the 2025 Information and Democracy Research Grants cohort, for the [Center on Media, Technology and Democracy](https://infodem.upenn.edu). Sits alongside the public `grants` page as a fuller view: every grant's summary, topics and expected outputs on the card itself.
+A static listing of the 2025 Information and Democracy Research Grants cohort, for the [Center on Media, Technology and Democracy](https://mediated.upenn.edu). Sits alongside the public `grants` page as a fuller view: every grant's summary, topics and expected outputs on the card itself.
 
 The page ships **no JavaScript** — what you see in `index.html` is what renders.
 
