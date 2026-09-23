@@ -48,7 +48,7 @@ Sitewide convention. The `--fs-*`/`--lh-*` block at the top of `styles.css` is t
 - **`--f-serif` (EB Garamond)** — page titles, and **titles of works or names of people**: a blog post title, a paper title, a person's name. Plus pull-quote copy.
 - **`--f-sans` (DM Sans)** — **section headings**, card and UI labels, running prose, metadata, controls, and uppercase micro-labels.
 
-The one that trips people up: **a section heading is not serif.** "Past Events", "Funded Grants", "Latest Updates" are all DM Sans 700 at `--fs-h2`. Serif marks a thing that has its own name — `blog`'s `.post-item h2`, `research-compendium`'s `.entry__title`, `team-leadership`'s `.person-card__name`, `team-faculty`'s `#fb-name` and `#pd-title` — while sans marks the furniture around it, *including card titles that label a category rather than name a work* (`events`' `.event-card__title`, `data`'s `.data-project__title`, `home`'s `.news-card__title`).
+The one that trips people up: **a section heading is not serif.** "Past Events", "Funded Grants", "Latest Updates" are all DM Sans 700 at `--fs-h2`. Serif marks a thing that has its own name — `blog`'s `.post-item h2`, `research-compendium`'s `.entry__title`, this page's grant titles (`.card h4` — a funded project is a named work), `team-leadership`'s `.person-card__name`, `team-faculty`'s `#fb-name` and `#pd-title` — while sans marks the furniture around it, *including card titles that label a category rather than name a work* (`events`' `.event-card__title`, `data`'s `.data-project__title`, `home`'s `.news-card__title`).
 
 So two `--fs-h3` card titles can legitimately differ: a post title is serif because it names a work, an event card title is sans because it labels an event. That is the rule, not an inconsistency.
 
@@ -82,13 +82,14 @@ The top five are `clamp()` values that interpolate across the viewport, so table
 
 ## Style guide deltas from `about`
 
-Everything not listed here (spacing scale, `--c-dark`/`--c-accent`/`--c-red`/`--c-gray`/`--c-gray-dark`/`--c-light-bg`/`--c-white`/`--c-bg`, `--c-gradient`, `--f-serif`/`--f-sans`, the `--fs-*`/`--lh-*` type scale, the 1440px/80px-responsive layout scale, the sharp-corners-except-circles rule, the sharp-corners-except-circles rule, and the box-shadow+translateY-never-border-color hover convention) is pulled straight from `about` and should stay that way.
+Everything not listed here (spacing scale, `--c-dark`/`--c-accent`/`--c-red`/`--c-gray`/`--c-gray-dark`/`--c-light-bg`/`--c-white`/`--c-bg`, `--c-gradient`, `--f-serif`/`--f-sans`, the `--fs-*`/`--lh-*` type scale, the 1440px/80px-responsive layout scale, and the box-shadow+translateY-never-border-color hover convention) is pulled straight from `about` and should stay that way.
 
 This page defines a handful of tokens `about` doesn't need, all functional (drive dynamic UI state, not decoration):
 
 - `--card-hover-shadow` — the card hover-shadow value.
 
-- `--pillar-eco-bg`/`-text`, `--pillar-ai-bg`/`-text`, `--pillar-per-bg`/`-text` — the three research-pillar tag colors (also used for the purple-band dropdown tabs' accent). Drawn from the secondary color palette introduced for this page (see `grants/README.md`'s "Secondary colors" section).
+- `--pillar-{eco,ai,per}-solid` / `-bg` / `-text` — the three research pillars, taken from the sitewide accent palette (`research-compendium` README "Accent palette") by topic so they match the other research pages: media ecosystem = teal, AI = azure, persuasion = magenta. The card's `.pillar-tag` uses the light tag style (tint fill, 1px solid-colour border, dark text); each pillar box on the purple band carries its solid colour as a 4px top edge.
+- `--radius-card` (6px: cards, pillar boxes, the listing block) and `--radius-control` (4px: tags) — shared with `research-compendium` and `llm-civic-discourse`.
 
 ## Components with no analog on `about`/`home`/`team-leadership`
 
@@ -96,6 +97,10 @@ This page is a data tool, not a marketing page, so several components exist here
 
 - **Grant card** — category bar, title, researchers, affiliated schools, one-line description, then labelled Topics and Expected outputs tag rows. Hovering lifts the card `4px` and adds `--card-hover-shadow`; the border never changes color, per the sitewide convention. The first `.card-meta` carries `margin-top: auto`, so both tag groups sit together on the card's bottom edge and line up across a row regardless of description length.
 - **Purple-band pillar dropdowns** — three research-area tabs (`Unpacking the Media Ecosystem` / `When AI Mediates Information` / `Persuasion and Common Ground`), one panel open at a time, each showing just that pillar's description (the grants themselves are only listed once, in the card grid below, to avoid duplicating content).
+
+## Shared with research-compendium and llm-civic-discourse
+
+The three research pages share the accent palette and light tag style, 6px / 4px corner radii, serif 600 titles for named works, and the same micro-label and hover conventions, so they read as one set; each keeps its own layout (this page: the purple band with three pillar boxes and the static grant-card grid). Change one of the shared pieces here and check the other two.
 
 ## Keeping in sync
 
