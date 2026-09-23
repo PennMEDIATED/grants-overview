@@ -162,6 +162,13 @@
   @media (max-width: 900px) { section.body-section { padding: var(--space-400); } }
   @media (max-width: 480px) { section.body-section { padding: var(--space-250); } }
 
+  /* The last block's bottom margin is the page's trailing margin, and a
+     trailing margin on an iframed page is white space the frame is not sized
+     to include (see the trailing-margin guard at the end of this file). The
+     gap before the footer is the footer's own signal band now — it does not
+     need 80px of help from here. */
+  section.body-section:last-child { margin-bottom: 0; }
+
   /* Weight 700, not 600: sitewide, 700 is the white-background section
      heading weight and 600 is reserved for headings on colored blocks. */
   .section-title {
@@ -209,3 +216,23 @@
   }
   .card-meta .tag-row { margin-bottom: 0; }
 
+
+/* ── Trailing-margin guard ─────────────────────────────────────────────────
+   These pages are embedded in an iframe that is resized to the height this
+   page reports, and that height is measured from document.body.
+
+   A bottom margin on the last element COLLAPSES THROUGH body and out to
+   <html>. It never appears in body.scrollHeight, but it does extend
+   documentElement.scrollHeight — so the frame gets sized short of the real
+   document, the embedded page is left with a few px it can scroll, and it
+   swallows the visitor's wheel events: the outer page then only scrolls when
+   the cursor is over its scrollbar. It has bitten twice (home, 64px;
+   grants-overview, 80px) and it is invisible in the builder.
+
+   display: flow-root makes body a block formatting context, so descendant
+   margins can no longer escape it and the measured height is always the whole
+   document. Cheap, and it removes a whole class of bug rather than one
+   instance. If a page grows here, something was relying on a margin escaping
+   — convert that margin to padding rather than removing this.
+   ====================================================================== */
+body { display: flow-root; }
